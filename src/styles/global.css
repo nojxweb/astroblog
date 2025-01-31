@@ -61,7 +61,7 @@ header {
   align-items: center; /* Aligne verticalement */
   padding: 0rem;
   width: 100%;
-  border-style: solid;
+  border-style: none;
 }
 
 .hamburger {
@@ -96,7 +96,7 @@ header {
 }
 
 nav {
-  border-style: solid;
+  border-style: none;
 }
 
 .nav-links {
@@ -167,7 +167,7 @@ nav {
   }
 
   .nav-links li {
-    border-style: solid;
+    border-style: none;
     margin: 0;
     min-width: fit-content;
 
@@ -190,7 +190,7 @@ nav {
 
 html.dark {
   background-color: rgb(31, 31, 31);
-  color: #f2f2f2;
+  color: #e8e8e8;
 }
 
 html.dark a {
@@ -216,7 +216,9 @@ html.dark a {
 @media screen and (min-width: 636px) {
   .dark .nav-links {
     background: none; /* Supprime le background */
-  
+  }
+  .dark .nav-links a {
+    text-decoration: none;
   }
 }
 
