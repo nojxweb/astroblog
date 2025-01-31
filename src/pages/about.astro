@@ -1,5 +1,7 @@
 ---
-const pagetittle = "A propos de moi;"
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "A propos de moi"
 
 const identity = {
   firstName: "Najo",
@@ -13,22 +15,11 @@ const skills = ["HTML", "CSS", "JavaScript", "Astro", "Analyse de documentation"
 const happy = true;
 const finished = false;
 const goal = 3;
-
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pagetittle}</title>
-  </head>
-  <body>
-    <a href="/">Accueil</a>
-    <a href="/about/">À propos</a>
-    <a href="/blog/">Blog</a>
-    <h1>{pagetittle}</h1>
+<BaseLayout pageTitle={pageTitle}>
+  
+  </style>
     <h2>... et de mon nouveau site Astro !</h2>
 
     <p>
@@ -52,12 +43,10 @@ const goal = 3;
     </ul>
     <p>Voici mes compétences :</p>
     <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>   
     {happy && <p>Je suis heureux d'apprendre Astro !</p>}
     {finished && <p>J'ai terminé ce tutoriel !</p>}
     {goal === 3 ? <p>Mon objectif est de terminer en 3 jours.</p> : <p>Mon objectif n'est pas de 3 jours.</p>}
-
-    
-  </body>
-</html>
+  </BaseLayout>
+  

@@ -1,0 +1,228 @@
+html {
+  background-color: #f1f5f9;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 90ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+}
+
+a {
+  text-decoration:underline;
+  color: #213369;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+
+
+/* Classes */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+
+.tag {
+  margin-right: 0.25rem;
+  border: solid 1px #a1a1a1;
+  border-radius: .5em;
+  padding: .25em 0.5em;
+  font-size: 1em;
+}
+
+.tags :hover,
+.tags :focus {
+  background-color: #888888;
+}
+
+/* Styles de la navigation */
+header {  
+  display: flex;
+  justify-content: space-between; /* Sépare les 3 zones */
+  align-items: center; /* Aligne verticalement */
+  padding: 0rem;
+  width: 100%;
+  border-style: solid;
+}
+
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrage horizontal */
+  justify-content: center; /* Centrage vertical */
+  margin: auto;
+  padding:10px 20px;
+}
+
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 8px;
+  background-color: #1c1c1c;
+
+}
+
+.hamburger .line:last-child {
+  margin-bottom: 0; /* Supprime la margin-bottom uniquement pour la dernière ligne */
+}
+
+.logo {
+  display: flex;
+  width: auto;
+  font-size: larger;
+}
+
+nav {
+  border-style: solid;
+}
+
+.nav-links {
+  width: 100%;
+  background-color: #c3c3c3;
+  display: none;
+  margin-top: 0px;
+  position: absolute;
+  left: 0;
+
+}
+
+.nav-links a {
+  display: flex;
+  color: #1f1f1f;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-style: none;
+
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrage horizontal */
+  margin: 0 10%; /* Espace de 10% à gauche et à droite */
+  padding: 0; /* Réinitialise le padding par défaut */
+}
+
+.expanded {
+  display: unset;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  text-decoration: underline;
+  border-radius: 10px;
+}
+
+
+
+
+@media screen and (min-width: 636px) {
+  .nav-links {
+
+    display: flex;
+    justify-content: center;
+    position: static;
+    width: 100%;
+    background: none;
+    
+
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 20px;
+    border-bottom: none;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-links li {
+    border-style: solid;
+    margin: 0;
+    min-width: fit-content;
+
+  }
+
+  header {  
+    display: flex;
+    justify-content: space-between; /* Sépare les 3 zones */
+    align-items: center; /* Aligne verticalement */
+    padding: 0rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+}
+
+/* theme dark */
+
+html.dark {
+  background-color: rgb(31, 31, 31);
+  color: #f2f2f2;
+}
+
+html.dark a {
+  text-decoration:underline;
+  color: #acc3f9;
+}
+
+.dark .nav-links a {
+  color: #f1f1f1;
+}
+
+.dark .nav-links {
+  width: 100%;
+  background-color: #404040;
+}
+
+.dark .hamburger .line {
+  
+  background-color: #f2f2f2;
+
+}
+
+@media screen and (min-width: 636px) {
+  .dark .nav-links {
+    background: none; /* Supprime le background */
+  
+  }
+}
+
+.dark .nav-links a:hover,
+.nav-links a:focus {
+  text-decoration:underline ;
+  border-radius: 10px;
+}
+
