@@ -38,6 +38,7 @@ img {
   max-width: 100%; /* Ne dépasse pas la largeur du conteneur */
   border-radius: 10px; /* Coins arrondis */
   object-fit: cover; /* Couvre le conteneur */
+
 }
 
 
