@@ -82,16 +82,15 @@ header {
   border-style: none;
 }
 
-/* icone theme */
+/* icon theme */
 
 #themeToggle {
-  border: none;
+  border: 2px solid red;
   background: none;
   width: 30px;
   height: 30px;
   display: flex;
   cursor: pointer;
-  border-style: none;
   visibility: visible;
   opacity: 1;
   padding: 0;
