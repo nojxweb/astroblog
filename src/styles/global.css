@@ -96,6 +96,11 @@ header {
   padding: 0;
 }
 
+#themeToggle svg {
+  display: block; /* Forcer l'affichage */
+  visibility: visible;
+  opacity: 1;
+}
 
 .sun { 
   fill: rgb(12, 12, 12); 
@@ -113,7 +118,7 @@ header {
 }
 
 .dark .moon { 
-  fill: white;
+  fill: #f1f1f1;
   transition: fill 0.3s ease; 
 }
 
