@@ -80,16 +80,20 @@ header {
   align-items: center; /* Aligne verticalement */
   padding: 0;
   border-style: none;
+  position: relative;
+  z-index: 100;
 }
+
 
 /* icon theme */
 
 #themeToggle {
-  border: 2px solid red;
+  border: none;
   background: none;
   width: 30px;
   height: 30px;
   display: flex;
+  flex: 1;
   cursor: pointer;
   visibility: visible;
   opacity: 1;
@@ -104,7 +108,7 @@ header {
 }
 
 .sun { 
-  fill: rgb(12, 12, 12); 
+  fill: #0c0c0c; 
   transition: fill 0.3s ease;
 }
 
@@ -126,7 +130,6 @@ header {
 /* hamburger */
 
 .hamburger {
-  padding-right: 20px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -134,13 +137,14 @@ header {
   justify-content: center; /* Centrage vertical */
   margin: auto;
   padding:10px 20px;
+  
 }
 
 
 .hamburger .line {
   display: block;
-  width: 40px;
-  height: 4px;
+  width: 30px;
+  height: 2px;
   margin-bottom: 8px;
   background-color: #1c1c1c;
 
@@ -154,6 +158,7 @@ header {
 
 .logo {
   display: flex;
+  flex: 1;
   width: auto;
   font-size: larger;
 }
@@ -163,7 +168,7 @@ header {
   color: currentColor; /* Utilise la couleur du texte actuel */
 }
 
- /* nav */ 
+/* nav */ 
 
 nav {
   border-style: none;
@@ -176,10 +181,11 @@ nav {
   margin-top: 0px;
   position: absolute;
   left: 0;
-  top: 0;
-  height: 100vh;
+  top: 100%;
+  height: 50vh;
   z-index: 1000;
   overflow-y: auto;
+  margin-top: 10px; /* Espace entre le header et le menu */
 
 }
 
@@ -201,7 +207,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centrage horizontal */
-  margin: 10 0%; /* Espace de 10% à gauche et à droite */
+  margin: 10 10%; /* Espace de 10% à gauche et à droite */
   padding: 0; /* Réinitialise le padding par défaut */
 }
 
@@ -320,7 +326,7 @@ html.dark .logo a {
   background-color: #c3c3c3; /* Même couleur que le menu mobile */
   border: none;
   padding: 10px;
-  text-align: center; /* Aligne le contenu à droite */
+  text-align: center; 
   font-size: 30px;
   cursor: pointer;
   position: sticky;

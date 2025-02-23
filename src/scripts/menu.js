@@ -5,57 +5,54 @@ function handleResponsiveMenu() {
   // Fonction pour réinitialiser le menu
   function resetMenu() {
     if (window.innerWidth >= 636) {
-      // En mode desktop
       navLinks.classList.remove('expanded');
-      hamburger.style.display = 'none';
+      navLinks.style.display = 'flex'; // Menu visible en desktop
+      hamburger.style.display = 'none'; // Cacher le hamburger
     } else {
-      // En mode mobile
-      hamburger.style.display = 'flex';
+      navLinks.classList.remove('expanded');
+      navLinks.style.display = 'none'; // Menu caché par défaut en mobile
+      hamburger.style.display = 'flex'; // Afficher le hamburger
     }
   }
 
-  // Écoute du redimensionnement
   window.addEventListener('resize', resetMenu);
-
-  // Appel initial
-  resetMenu();
+  resetMenu(); // Appel initial
 }
 
 function addCloseButton() {
   const navLinks = document.querySelector('.nav-links');
-  
-  const closeButton = document.createElement('button');
-  closeButton.innerHTML = '✕'; // Croix simple
-  closeButton.classList.add('close-menu-btn');
-  
-  closeButton.addEventListener('click', () => {
-    navLinks.classList.remove('expanded');
-    
-    // Réaffiche le hamburger
-    const hamburger = document.querySelector('.hamburger');
-    hamburger.style.display = 'flex';
-  });
-  
-  // Ajoute le bouton de fermeture au début du menu
-  navLinks.insertBefore(closeButton, navLinks.firstChild);
+
+  // Empêcher les doublons de bouton
+  if (!document.querySelector('.close-menu-btn')) {
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '✕';
+    closeButton.classList.add('close-menu-btn');
+
+    closeButton.addEventListener('click', () => {
+      navLinks.classList.remove('expanded');
+      navLinks.style.display = 'none';
+
+      // Réaffiche le hamburger
+      const hamburger = document.querySelector('.hamburger');
+      hamburger.style.display = 'flex';
+    });
+
+    navLinks.insertBefore(closeButton, navLinks.firstChild);
+  }
 }
 
-// Initialisation au chargement du document
 document.addEventListener('DOMContentLoaded', () => {
-  // Ajoute le bouton de fermeture
   addCloseButton();
-  
-  // Gère le menu responsive
   handleResponsiveMenu();
 
-  // Gestion du hamburger
+  // Gestion du clic sur le hamburger
   document.querySelector('.hamburger').addEventListener('click', () => {
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
-    
-    // Ne s'applique que sur mobile
+
     if (window.innerWidth <= 635) {
       navLinks.classList.add('expanded');
+      navLinks.style.display = 'block'; // Affiche le menu sous le header
       hamburger.style.display = 'none';
     }
   });
