@@ -78,7 +78,7 @@ header {
   display: flex;
   justify-content: space-between; /* Sépare les 3 zones */
   align-items: center; /* Aligne verticalement */
-  padding: 0rem;
+  padding: 0;
   border-style: none;
 }
 
@@ -94,6 +94,7 @@ header {
   visibility: visible;
   opacity: 1;
   padding: 0;
+  z-index: 1000;
 }
 
 #themeToggle svg {
@@ -320,7 +321,7 @@ html.dark .logo a {
   border: none;
   padding: 10px;
   text-align: center; /* Aligne le contenu à droite */
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   position: sticky;
   top: 0;
