@@ -47,7 +47,7 @@ img {
   max-width: 100%; /* Ne dépasse pas la largeur du conteneur */
   border-radius: 10px; /* Coins arrondis */
   object-fit: cover; /* Couvre le conteneur */
-  filter: drop-shadow(0px 0px 2px #7d7d7d);
+  filter: drop-shadow(0px 0px 3px #7d7d7d);
 }
 
 
@@ -131,25 +131,25 @@ header {
 
 .sun { 
   fill: #0c0c0c; 
-  transition: fill 0.3s ease, opacity 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.1s ease;
 }
 
 .moon { 
   fill: transparent; 
   opacity: 0;
-  transition: fill 0.3s ease, opacity 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.1s ease;
 }
 
 .dark .sun { 
   fill: transparent; 
   opacity: 0;
-  transition: fill 0.3s ease, opacity 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.1s ease;
 }
 
 .dark .moon { 
   fill: #f1f1f1;
   opacity: 1;
-  transition: fill 0.3s ease, opacity 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.1s ease;
 }
 
 
@@ -173,7 +173,7 @@ header {
   height: 2px;
   margin-bottom: 8px;
   background-color: #1c1c1c;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.1s ease;
 
 }
 
