@@ -2,16 +2,18 @@ function handleResponsiveMenu() {
   const navLinks = document.querySelector('.nav-links');
   const hamburger = document.querySelector('.hamburger');
 
-  // Fonction pour réinitialiser le menu
+  // Fonction pour réinitialiser le menu selon la taille de l'écran
   function resetMenu() {
     if (window.innerWidth >= 636) {
       navLinks.classList.remove('expanded');
       navLinks.style.display = 'flex'; // Menu visible en desktop
       hamburger.style.display = 'none'; // Cacher le hamburger
+      hamburger.classList.remove('active'); // Réinitialiser l'état du hamburger
     } else {
       navLinks.classList.remove('expanded');
-      navLinks.style.display = 'none'; // Menu caché par défaut en mobile
+      navLinks.style.display = 'none'; // Menu caché en mobile
       hamburger.style.display = 'flex'; // Afficher le hamburger
+      hamburger.classList.remove('active'); // Réinitialiser l'état du hamburger
     }
   }
 
@@ -19,41 +21,18 @@ function handleResponsiveMenu() {
   resetMenu(); // Appel initial
 }
 
-function addCloseButton() {
-  const navLinks = document.querySelector('.nav-links');
-
-  // Empêcher les doublons de bouton
-  if (!document.querySelector('.close-menu-btn')) {
-    const closeButton = document.createElement('button');
-    closeButton.innerHTML = '✕';
-    closeButton.classList.add('close-menu-btn');
-
-    closeButton.addEventListener('click', () => {
-      navLinks.classList.remove('expanded');
-      navLinks.style.display = 'none';
-
-      // Réaffiche le hamburger
-      const hamburger = document.querySelector('.hamburger');
-      hamburger.style.display = 'flex';
-    });
-
-    navLinks.insertBefore(closeButton, navLinks.firstChild);
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  addCloseButton();
   handleResponsiveMenu();
 
-  // Gestion du clic sur le hamburger
-  document.querySelector('.hamburger').addEventListener('click', () => {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-    if (window.innerWidth <= 635) {
-      navLinks.classList.add('expanded');
-      navLinks.style.display = 'block'; // Affiche le menu sous le header
-      hamburger.style.display = 'none';
+  // Gestion du clic sur le hamburger
+  hamburger.addEventListener('click', () => {
+    if (window.innerWidth < 636) {
+      navLinks.classList.toggle('expanded'); // Ouvre/ferme le menu
+      hamburger.classList.toggle('active');  // Transforme en croix
+      navLinks.style.display = navLinks.classList.contains('expanded') ? 'block' : 'none';
     }
   });
 });

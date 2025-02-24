@@ -107,7 +107,8 @@ header {
 #themeToggle {
   border: none;
   background: none;
-  width: 30px;
+  width: 28px;
+  height: 28px;
   display: flex;
   flex: 1;
   cursor: pointer;
@@ -118,6 +119,14 @@ header {
   opacity: 1;
 }
 
+#themeToggle svg {
+  display: block; /* Forcer l'affichage */
+  visibility: visible;
+  opacity: 1;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
 
 
 .sun { 
@@ -164,11 +173,25 @@ header {
   height: 2px;
   margin-bottom: 8px;
   background-color: #1c1c1c;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 
 }
 
 .hamburger .line:last-child {
   margin-bottom: 0; /* Supprime la margin-bottom uniquement pour la dernière ligne */
+}
+
+/* Animation en croix quand le menu est ouvert */
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0; /* Ligne du milieu disparaît */
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* logo */ 
@@ -225,7 +248,8 @@ nav {
   flex-direction: column;
   align-items: center; /* Centrage horizontal */
   margin: 0 10%; /* Espace de 10% à gauche et à droite */
-  padding: 0; /* Réinitialise le padding par défaut */
+  padding: 10px 0; /* Réinitialise le padding par défaut */
+  border-style: none;
 }
 
 .expanded {
