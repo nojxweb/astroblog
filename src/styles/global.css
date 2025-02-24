@@ -1,18 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background-color: #f1f5f9;
+  background-color: #f1f1f1;
   font-family: sans-serif;
+  height: 100%;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
+  height: 100%;
   max-width: 90ch;
   padding: 1rem;
   line-height: 1.5;
 }
 
-* {
-  box-sizing: border-box;
+main {
+  flex: 1;
 }
 
 h1 {
@@ -38,20 +46,25 @@ img {
   max-width: 100%; /* Ne dépasse pas la largeur du conteneur */
   border-radius: 10px; /* Coins arrondis */
   object-fit: cover; /* Couvre le conteneur */
-
+  filter: drop-shadow(0px 0px 2px #7d7d7d);
 }
 
 
 footer {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0rem;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 
 
 /* Classes */
+
+.info-note {
+  font-size: 14px;
+}
 
 .tags {
   display: flex;
@@ -61,15 +74,22 @@ footer {
 
 .tag {
   margin-right: 0.25rem;
-  border: solid 1px #a1a1a1;
-  border-radius: .5em;
+  border: none;
+  border-radius: 0;
   padding: .25em 0.5em;
   font-size: 1em;
 }
 
 .tags :hover,
 .tags :focus {
-  background-color: #888888;
+  background-color: #cccccc;
+  border-radius: 6px;
+}
+
+.dark .tags :hover,
+.dark .tags :focus {
+  background-color: #3e3e3e;
+  border-radius: 6px;
 }
 
 /* Styles de la navigation */
@@ -95,37 +115,38 @@ header {
   display: flex;
   flex: 1;
   cursor: pointer;
-  visibility: visible;
-  opacity: 1;
   padding: 0;
   z-index: 1000;
 }
 
 #themeToggle svg {
-  display: block; /* Forcer l'affichage */
   visibility: visible;
   opacity: 1;
 }
 
 .sun { 
   fill: #0c0c0c; 
-  transition: fill 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.3s ease;
 }
 
 .moon { 
   fill: transparent; 
-  transition: fill 0.3s ease;
+  opacity: 0;
+  transition: fill 0.3s ease, opacity 0.3s ease;
 }
 
 .dark .sun { 
   fill: transparent; 
-  transition: fill 0.3s ease;
+  opacity: 0;
+  transition: fill 0.3s ease, opacity 0.3s ease;
 }
 
 .dark .moon { 
   fill: #f1f1f1;
-  transition: fill 0.3s ease; 
+  opacity: 1;
+  transition: fill 0.3s ease, opacity 0.3s ease;
 }
+
 
 /* hamburger */
 
@@ -136,7 +157,7 @@ header {
   align-items: center; /* Centrage horizontal */
   justify-content: center; /* Centrage vertical */
   margin: auto;
-  padding:10px 20px;
+  padding:0px 20px;
   
 }
 
@@ -185,8 +206,8 @@ nav {
   height: 50vh;
   z-index: 1000;
   overflow-y: auto;
-  margin-top: 10px; /* Espace entre le header et le menu */
-
+  margin-top: 20px; /* Espace entre le header et le menu */
+  border-radius: 8px;
 }
 
 .nav-links a {
@@ -207,7 +228,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centrage horizontal */
-  margin: 10 10%; /* Espace de 10% à gauche et à droite */
+  margin: 0 10%; /* Espace de 10% à gauche et à droite */
   padding: 0; /* Réinitialise le padding par défaut */
 }
 
@@ -218,31 +239,29 @@ nav {
 .nav-links a:hover,
 .nav-links a:focus {
   text-decoration: underline;
-  border-radius: 10px;
 }
 
 
 /* desktop */
 
 @media screen and (min-width: 636px) {
+  
   .nav-links {
-
     display: flex;
     justify-content: center;
     position: static;
     width: 100%;
     background: none;
     height: auto;
-    
-
+    margin-top: 0px;
   }
 
   .nav-links ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 10px 20px;
-    border-bottom: none;
+    padding: 0 10px ;
+    margin: 0;
     width: 100%;
     list-style: none;
   }
@@ -250,15 +269,30 @@ nav {
   .nav-links li {
     border-style: none;
     margin: 0;
-    min-width: fit-content;
+    min-width: auto;
+  }
 
+  .nav-links a {
+    display: flex;
+    color: #1f1f1f;
+    text-align: center;
+    padding: 0 10px ;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-style: none;
+  
   }
 
   header {  
     display: flex;
     justify-content: space-between; /* Sépare les 3 zones */
     align-items: center; /* Aligne verticalement */
-    padding: 0rem;
+    padding: 12px 0;
+    border-style: none;
+    position: relative;
+    z-index: 100;
   }
 
   .hamburger, .close-menu-btn {
@@ -271,7 +305,7 @@ nav {
 
 html.dark {
   background-color: rgb(31, 31, 31);
-  color: #e8e8e8;
+  color: #f1f1f1;
 }
 
 html.dark a {
@@ -290,7 +324,7 @@ html.dark a {
 
 .dark .hamburger .line {
   
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
 
 }
 
@@ -330,11 +364,12 @@ html.dark .logo a {
   font-size: 30px;
   cursor: pointer;
   position: sticky;
-  top: 0;
+  top: 0%;
   z-index: 1001;
 }
 
 .nav-links.expanded .close-menu-btn {
   display: block; /* Affiche uniquement quand le menu est ouvert */
+  border-radius: 0px;
 }
 
