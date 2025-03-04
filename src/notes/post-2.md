@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 
 title: Mon deuxième article de blog
 author: Apprenti Astro

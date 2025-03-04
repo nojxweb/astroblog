@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: Mon autre billet de blog
 author: Apprenti Astro
 description: "Ceci est un test !"

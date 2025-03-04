@@ -204,6 +204,7 @@ header {
 }
 
 .logo a {
+  font-size: 28px;
   text-decoration: none;
   color: currentColor; /* Utilise la couleur du texte actuel */
 }
@@ -329,7 +330,6 @@ html.dark {
 }
 
 html.dark a {
-  text-decoration:none;
   color: #acc3f9;
 }
 

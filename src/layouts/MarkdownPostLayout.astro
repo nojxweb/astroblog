@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 
 const {frontmatter} = Astro.props;
@@ -9,7 +10,7 @@ const {frontmatter} = Astro.props;
 <p class="info-note">{frontmatter.author} - {new Date(frontmatter.pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
 <hr>
 <br/>
-<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+<Image src={frontmatter.image.url} width="600px" height="300px" alt={frontmatter.image.alt} />
 <br/>
 <slot />
 <hr>
