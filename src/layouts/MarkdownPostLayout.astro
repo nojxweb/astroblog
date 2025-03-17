@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 
 const {frontmatter} = Astro.props;
+
+const isOptimized = frontmatter.image?.src !== undefined;
 ---
 <BaseLayout>
 <main>
@@ -10,8 +12,13 @@ const {frontmatter} = Astro.props;
 <p class="info-note">{frontmatter.author} - {new Date(frontmatter.pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
 <hr>
 <br/>
-<Image src={frontmatter.image.url} width="600px" height="300px" alt={frontmatter.image.alt} />
-<br/>
+{isOptimized ? (
+  // Afficher une image optimisée si elle existe
+<Image class="custom-img" src={frontmatter.image.url} width="600" height="300" alt={frontmatter.image.alt} />
+) : (
+  // Sinon, afficher une image classique
+  <img src={frontmatter.image.url} width="600" height="300" alt={frontmatter.image.alt} />
+)}<br/>
 <slot />
 <hr>
 <div class="tags">
