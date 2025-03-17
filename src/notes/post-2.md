@@ -1,6 +1,6 @@
 ---
 
-title: Mon deuxième article de blog
+title: Mon deuxième article de blog astro
 author: Apprenti Astro
 description: "Après avoir appris Astro, je ne pouvais plus m'arrêter !"
 image:

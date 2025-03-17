@@ -1,6 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 const pageTitle = "Page d'accueil";
+
+const allPosts = await getCollection("notes");
+
+// Trier du plus récent au plus ancien et limiter à 10
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .slice(0, 10)
+  .map(post => ({
+    ...post,
+    // Limite à 150 caractères
+    excerpt: post.body.length > 100 
+      ? post.body.substring(0, 100) + '...' 
+      : post.body
+  }));
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -12,5 +28,28 @@ const pageTitle = "Page d'accueil";
     rerum nostrum, repellat itaque unde tempore vero assumenda delectus! Et,
     fuga ea.
   </p>
+
+ <section class="recent-posts">
+    <h2>Derniers articles</h2>
+    {recentPosts.map((post) => (
+      <article class="post-preview">
+        <div class="post-preview-header">
+          <h3>
+            <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+          </h3>
+          <p class="excerpt">{post.excerpt}</p>
+        </div>
+        {post.data.image && (
+          <div class="post-image">
+            <img 
+              src={post.data.image.url} 
+              alt={post.data.image.alt || post.data.title} 
+            />
+          </div>
+        )}
+      </article>
+    ))}
+  </section>
+
 
 </BaseLayout>
