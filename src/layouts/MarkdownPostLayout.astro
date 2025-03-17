@@ -14,7 +14,7 @@ const isOptimized = frontmatter.image?.src !== undefined;
 <br/>
 {isOptimized ? (
   // Afficher une image optimisée si elle existe
-<Image class="custom-img" src={frontmatter.image.url} width="600" height="300" alt={frontmatter.image.alt} />
+<Image class="custom-img" src={frontmatter.image.src} width="600" height="300" alt={frontmatter.image.alt} />
 ) : (
   // Sinon, afficher une image classique
   <img src={frontmatter.image.url} width="600" height="300" alt={frontmatter.image.alt} />
