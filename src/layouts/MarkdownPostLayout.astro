@@ -4,7 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 
 const {frontmatter} = Astro.props;
 
-const isOptimized = frontmatter.image?.src !== undefined;
+const isOptimized = frontmatter.image?.src !== undefined && frontmatter.image.src !== "";
 ---
 <BaseLayout>
 <main>
