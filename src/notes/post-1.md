@@ -6,7 +6,7 @@ pubDate: 2025-01-22
 description: "Il s'agit du premier article de mon nouveau blog Astro."
 author: 'Apprenti'
 image:
-    url: imagesrc
+    src: imagesrc
     alt: "Lac et paysage enneigé."
 tags: ["astro", "blogging", "apprentissage en public"]
 ---
