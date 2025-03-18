@@ -11,7 +11,7 @@ const recentPosts = allPosts
   .slice(0, 10)
   .map(post => ({
     ...post,
-    // Limite à 150 caractères
+    // Limite à 100 caractères
     excerpt: post.body.length > 100 
       ? post.body.substring(0, 100) + '...' 
       : post.body
@@ -20,7 +20,7 @@ const recentPosts = allPosts
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>{pageTitle}</h1>
+  
   <h2>Mon sous-titre de blog génial</h2>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus

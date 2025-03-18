@@ -13,7 +13,7 @@ const notes = defineCollection({
       image: z.object({
         src: z.string(),
         alt: z.string()
-      }),
+      }).optional(),
       tags: z.array(z.string())
     })
 });

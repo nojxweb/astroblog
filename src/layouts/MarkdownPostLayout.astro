@@ -8,26 +8,25 @@ const {frontmatter} = Astro.props;
 <BaseLayout>
 <main>
 <h1>{frontmatter.title}</h1>
-<p class="info-note">{frontmatter.author} - {new Date(frontmatter.pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
-<hr>
-<br/>
+
+<hhr>
+<bbr/>
 
 
 <!-- Utilisation de <Image /> pour afficher l'image -->
 
-  <image
-    class="custom-img"
-    src={frontmatter.image.src}  
-    alt={frontmatter.image.alt}  
-    width="600"  
+{frontmatter.image && frontmatter.image.src && (
+  <image 
+    src={frontmatter.image.src} 
+    alt={frontmatter.image.alt} 
+    width="600" 
     height="300" 
   />
+)}
 
-
-
-
-<br/>
 <slot />
+
+<p class="info-note">{new Date(frontmatter.pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
 <hr> 
 <div class="tags">
     {frontmatter.tags.map((tag: string) => (

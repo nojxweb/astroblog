@@ -29,8 +29,12 @@ h1 {
 }
 
 a {
-  text-decoration:underline;
+  text-decoration:none;
   color: #213369;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 p a {
@@ -51,7 +55,7 @@ img {
   padding: 1px;
 }
 
-.custom-img {
+.image {
   aspect-ratio: 16/9;
   width: 100%;
   height: auto;
@@ -73,31 +77,41 @@ footer {
 
 .info-note {
   font-size: 14px;
+  margin: 1rem 0 0 0;
+  
 }
+
 
 .tags {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .tag {
-  margin-right: 0.25rem;
+  text-decoration: none;
   border: none;
   border-radius: 0;
-  padding: .25em 0.5em;
+  padding: .25em 0.5em 0em 0em;
+  font-size: 0.9em;
+}
+
+ul.tag{
+  text-decoration: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0.5rem 0;
   font-size: 1em;
 }
 
 .tags :hover,
 .tags :focus {
-  background-color: #cccccc;
-  border-radius: 6px;
 }
 
 .dark .tags :hover,
 .dark .tags :focus {
-  background-color: #3e3e3e;
-  border-radius: 6px;
+  
 }
 
 /* Styles de la navigation */
@@ -118,7 +132,7 @@ header {
 #themeToggle {
   border: none;
   background: none;
-  width: 28px;
+  width: 24px;
   height: 28px;
   display: flex;
   flex: 1;
@@ -212,11 +226,13 @@ header {
   flex: 1;
   width: auto;
   font-size: larger;
+  align-items: center;
+  
 }
 
 .logo a {
-  font-size: 28px;
-  text-decoration: none;
+  font-size: 20px;
+  text-decoration: overline ;
   color: currentColor; /* Utilise la couleur du texte actuel */
 }
 

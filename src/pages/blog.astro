@@ -10,9 +10,9 @@ const pageTitle = "Notes";
 ---
 <BaseLayout pageTitle={pageTitle}>
 
-    <h1>Mon blog d'apprentissage Astro</h1>
-    <p>Voici où je vais publier mon parcours d'apprentissage d'Astro.</p>
-    <p class="div-2"><a href="/tags/">Étiquettes</a></p>
+    <h1>Toutes les notes</h1>
+    
+    <p><a href="/tags/">Étiquettes (tags)</a></p>
     
     <ul>
       {allPosts.map((post: any) => <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />)}
