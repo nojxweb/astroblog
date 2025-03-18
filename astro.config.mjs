@@ -7,4 +7,5 @@ import preact from "@astrojs/preact";
 export default defineConfig({
   site: "https://najoblog.netlify.app",
   integrations: [preact()]
+  
 });

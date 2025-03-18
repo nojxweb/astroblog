@@ -4,7 +4,7 @@ title: Mon deuxième article de blog astro
 author: Apprenti Astro
 description: "Après avoir appris Astro, je ne pouvais plus m'arrêter !"
 image:
-    url: "https://docs.astro.build/assets/arc.webp"
+    src: "https://docs.astro.build/assets/arc.webp"
     alt: "Le logo Astro sur un fond sombre avec un arc de cercle dégradé violet."
 pubDate: 2022-07-08
 tags: ["astro", "blogging", "apprentissage en public", "réussites"]

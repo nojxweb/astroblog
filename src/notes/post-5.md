@@ -3,7 +3,7 @@ title: Mon autre billet de blog
 author: Apprenti Astro
 description: "Ceci est un test !"
 image:
-  url: "https://docs.astro.build/default-og-image.png"
+  src: "https://docs.astro.build/default-og-image.png"
   alt: "Le mot « astro » sur fond d'illustration de planètes et d'étoiles."
 pubDate: 2025-02-23
 tags: ["astro", "réussites"]

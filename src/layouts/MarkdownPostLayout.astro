@@ -1,10 +1,9 @@
 ---
-import { Image } from 'astro:assets';
+
 import BaseLayout from './BaseLayout.astro';
 
 const {frontmatter} = Astro.props;
 
-const isOptimized = frontmatter.image?.src?.startsWith('http') ?? false;
 ---
 <BaseLayout>
 <main>
@@ -12,15 +11,24 @@ const isOptimized = frontmatter.image?.src?.startsWith('http') ?? false;
 <p class="info-note">{frontmatter.author} - {new Date(frontmatter.pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
 <hr>
 <br/>
-{isOptimized ? (
-  // Afficher une image optimisée si elle existe
-<Image class="custom-img" src={frontmatter.image.src} width="600" height="300" alt={frontmatter.image.alt} />
-) : (
-  // Sinon, afficher une image classique
-  <img src={frontmatter.image.src} width="600" height="300" alt={frontmatter.image.alt} />
-)}<br/>
+
+
+<!-- Utilisation de <Image /> pour afficher l'image -->
+
+  <image
+    class="custom-img"
+    src={frontmatter.image.src}  
+    alt={frontmatter.image.alt}  
+    width="600"  
+    height="300" 
+  />
+
+
+
+
+<br/>
 <slot />
-<hr>
+<hr> 
 <div class="tags">
     {frontmatter.tags.map((tag: string) => (
       <a href={`/tags/${tag}`} class="tag">{tag}</a>
