@@ -14,15 +14,16 @@ const {frontmatter} = Astro.props;
 
 
 <!-- Utilisation de <Image /> pour afficher l'image -->
-
+<div >
 {frontmatter.image && frontmatter.image.src && (
-  <image 
+  <img class="img-cover"
     src={frontmatter.image.src} 
     alt={frontmatter.image.alt} 
     width="600" 
     height="300" 
   />
 )}
+</div>
 
 <slot />
 
