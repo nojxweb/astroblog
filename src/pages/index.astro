@@ -9,47 +9,43 @@ const allPosts = await getCollection("notes");
 const recentPosts = allPosts
   .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
   .slice(0, 10)
-  .map(post => ({
+  .map((post) => ({
     ...post,
     // Limite à 100 caractères
-    excerpt: post.body.length > 100 
-      ? post.body.substring(0, 100) + '...' 
-      : post.body
+    excerpt:
+      post.body.length > 100 ? post.body.substring(0, 100) + "..." : post.body,
   }));
- 
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  
-  <h2>Mon sous-titre de blog génial</h2>
+  <h2>Curiosités - Inspirations</h2>
+  <img src="/images/Cerfdanschamp.jpg" alt="Description de l'image" />
   <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus
-    corporis explicabo, eos laudantium illo veritatis soluta harum temporibus,
-    rerum nostrum, repellat itaque unde tempore vero assumenda delectus! Et,
-    fuga ea.
+    Cet espace propose une collection de découvertes, d'inspirations, d'idées et d'expériences.
+    <br/>L'objectif est d'inviter chacun à explorer de nouvelles perspectives et à nourrir sa curiosité.
   </p>
 
- <section class="recent-posts">
+  <section class="recent-posts">
     <h2>Derniers posts</h2>
-    {recentPosts.map((post) => (
-      <article class="post-preview">
-        <div class="post-preview-header">
-          <h3>
-            <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-          </h3>
-          <p class="excerpt">{post.excerpt}</p>
-        </div>
-        {post.data.image && (
-          <div class="post-image">
-            <image 
-              src={post.data.image.src} 
-              alt={post.data.image.alt || post.data.title} 
-            />
+    {
+      recentPosts.map((post) => (
+        <article class="post-preview">
+          <div class="post-preview-header">
+            <h3>
+              <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+            </h3>
+            <p class="excerpt">{post.excerpt}</p>
           </div>
-        )}
-      </article>
-    ))}
+          {post.data.image && (
+            <div class="post-image">
+              <image
+                src={post.data.image.src}
+                alt={post.data.image.alt || post.data.title}
+              />
+            </div>
+          )}
+        </article>
+      ))
+    }
   </section>
-
-
 </BaseLayout>
